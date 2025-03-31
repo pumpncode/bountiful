@@ -1,7 +1,7 @@
-# bountiful
+# bountiful 1.0.0 
 balatro mod where the jokers begin with B
 
-## Rares
+## 1.0.0 Rares
 ### Botched (Rare $7) (Blueprintable)
 Gain +15 chips for every hand played that is not your most played hand
 > this poor card. whatever happened?
@@ -23,7 +23,7 @@ Panga khadi wa ma langi
 +$1 interest cap per scored 3
 > cash crop for a reason.
 
-## Uncommons
+## 1.0.0 Uncommons
 ### Bourgeoisie (Uncommon $5) (Blueprintable)
 1 in X chance to earn $X where X is the rank of each 7, 8, 9, or 10
 > we support numbered card synergies.
@@ -46,7 +46,7 @@ Gains +1 Chip for every card scored
 Turns a hand into a discard when a hand is played and vice versa for discards
 > tip the scales, split the room
 
-## Commons
+## 1.0.0 Commons
 ### Beneficiary (Common $3) (Blueprintable)
 Sell this card for +30 Bonus Cards
 > pulled this from Judgement? fish for Dagger.
