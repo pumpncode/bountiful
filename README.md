@@ -85,6 +85,6 @@ Mult cards give +8 mult, 1 in 4 chance to make a Mult card when card destroyed o
 Creates a Boss Tag per blind played or when sold
 > for i require something of you.
 
-### Bait and Switch (Common $3) X
+### Bait and Switch (Common $3) (Incompatible)
 +8 free rerolls, doubles shop prices
 > ha, gotcha! don't sue me.
