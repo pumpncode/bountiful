@@ -26,7 +26,7 @@ SMODS.Joker{
         text = {
             '{C:blue}+8{} free rerolls',
             'Doubles shop prices',
-            '{s:0.6}ha, gotcha! don\'t sue me.{}'
+            '{s:0.6}ha, gotcha! don\'t sue me.{}',
         },
     },
     atlas = 'jokers',
@@ -48,6 +48,10 @@ SMODS.Joker{
         if G.GAME.used_vouchers["v_liquidation"] == true then
             G.GAME.discount_percent = 0
         end
+        end
+        if card.ability.extra.fix == 0 and context ~= nil and pseudorandom('baitandswitch') > 0.5 then
+            card:set_edition(poll_edition('tag', nil, false, true))
+            card.ability.extra.fix = 0.5
         end
     end,
     calculate = function(self, card, context)
