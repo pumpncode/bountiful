@@ -1,5 +1,9 @@
-# bountiful 1.0.0 
+# bountiful 1.0.1
 balatro mod where the jokers begin with B
+
+1.0.1 patch
+fixed Blackmail, Barley
++1 Bait and Switch troll
 
 ## 1.0.0 Rares
 ### Botched (Rare $7) (Blueprintable)
