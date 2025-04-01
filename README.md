@@ -85,10 +85,10 @@ Mult cards give +8 mult, 1 in 4 chance to make a Mult card when card destroyed o
 > reference? i don't see it
 
 ### Blackmail (Common $5) (Incompatible)
-+2 Joker slots, -1 hand
++2 Joker slots, -2 hands
 Creates a Boss Tag per blind played or when sold
 > for i require something of you.
 
-### Bait and Switch (Common $3) (Incompatible)
-+8 free rerolls, doubles shop prices
+### Bait and Switch (Common $5) (Incompatible)
++5 free rerolls, doubles shop prices
 > ha, gotcha! don't sue me.
