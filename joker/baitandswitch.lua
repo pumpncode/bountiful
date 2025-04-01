@@ -56,7 +56,7 @@ SMODS.Joker{
     end,
     calculate = function(self, card, context)
         if context.end_of_round and not context.blueprint then
-        G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 8
+        G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 5
         calculate_reroll_cost(true)
         end
     end,
@@ -72,6 +72,7 @@ SMODS.Joker{
         if G.GAME.used_vouchers["v_liquidation"] == true then
             G.GAME.discount_percent = 50
         end
+        G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls - 5
         end
     end,
     set_sprites = function(self, card, front)
@@ -81,3 +82,4 @@ SMODS.Joker{
         end
     end,
 }
+
