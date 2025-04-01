@@ -3,7 +3,7 @@ SMODS.Joker{
     loc_txt = {
         name = 'Blackmail',
         text = {
-            '{C:blue}+2{} Joker slots, {C:red}-1{} hand',
+            '{C:blue}+2{} Joker slots, {C:red}-2{} hand',
             'Creates a Boss Tag',
             'after blind played',
             'or when destroyed',
@@ -31,7 +31,7 @@ SMODS.Joker{
         if context.setting_blind and not context.blueprint then
             ease_hands_played(-1)
             return{
-                message = '-1 hand'
+                message = '-2 hands'
             }
         end
         if context.ending_shop and not context.blueprint then
