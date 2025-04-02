@@ -39,10 +39,10 @@ SMODS.Joker{
    blueprint_compat = false,
    eternal_compat = true,
    perishable_compat = true,
-   config = { extra = { fix = 0 }},
+   config = { extra = { fix = 0, catch = 0 }},
    pos = {x = 0, y = 0},
 	update = function(self, card, dt)
-      if card.ability.extra.fix == 1 then
+      if card.ability.extra.fix == 1 and context ~= nil then
          G.GAME.discount_percent = -100
          if G.GAME.used_vouchers['v_clearance_sale'] == true then
             G.GAME.discount_percent = -50
@@ -57,26 +57,32 @@ SMODS.Joker{
       end
    end,
    calculate = function(self, card, context)
-      if context.end_of_round and not context.blueprint then
+      if context.end_of_round and not context.blueprint and card.ability.extra.fix == 1 and card.ability.extra.catch == 0 then
       G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 5
+      card.ability.extra.catch = 1
       calculate_reroll_cost(true)
+      end
+      if context.ending_shop and card.ability.extra.fix == 1 then
+        card.ability.extra.catch = 0
       end
    end,
    add_to_deck = function(self, card, from_debuff)
       card.ability.extra.fix = 1
    end,
    remove_from_deck = function(self, card, from_debuff)
-      if not from_debuff and not context.blueprint then
-      G.GAME.discount_percent = 0
-      if G.GAME.used_vouchers['v_clearance_sale'] == true then
-         G.GAME.discount_percent = 25
-      end
-      if G.GAME.used_vouchers['v_liquidation'] == true then
-         G.GAME.discount_percent = 50
-      end
-      G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls - 5
-      end
-   end,
+      if context ~= nil then
+         if not from_debuff and not context.blueprint then
+            G.GAME.discount_percent = 0
+            if G.GAME.used_vouchers['v_clearance_sale'] == true then
+               G.GAME.discount_percent = 25
+            end
+            if G.GAME.used_vouchers['v_liquidation'] == true then
+               G.GAME.discount_percent = 50
+            end
+            G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls - 5
+            end
+         end
+      end,
    set_sprites = function(self, card, front)
       if card and card.children and card.children.center and card.children.center.set_sprite_pos then
          card.children.center.atlas = G.ASSET_ATLAS['Joker']
