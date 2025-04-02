@@ -42,16 +42,14 @@ SMODS.Joker{
    config = { extra = { fix = 0 }},
    pos = {x = 0, y = 0},
 	update = function(self, card, dt)
-      if card.ability.extra.fix == 1 and context ~= nil then
-         if not context.blueprint then
-      G.GAME.discount_percent = -100
-      if G.GAME.used_vouchers['v_clearance_sale'] == true then
-         G.GAME.discount_percent = -50
-      end
-      if G.GAME.used_vouchers['v_liquidation'] == true then
-         G.GAME.discount_percent = 0
-      end
-      end
+      if card.ability.extra.fix == 1 then
+         G.GAME.discount_percent = -100
+         if G.GAME.used_vouchers['v_clearance_sale'] == true then
+            G.GAME.discount_percent = -50
+         end
+         if G.GAME.used_vouchers['v_liquidation'] == true then
+            G.GAME.discount_percent = 0
+         end
       end
       if card.ability.extra.fix == 0 and context ~= nil and pseudorandom('baitandswitch') > 0.5 then
          card:set_edition(poll_edition('tag', nil, false, true))
@@ -86,4 +84,3 @@ SMODS.Joker{
       end
    end,
 }
-
