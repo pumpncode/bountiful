@@ -23,7 +23,6 @@ Panga khadi wa ma langi
 > now with ignored boss blinds!
 
 ### Barley (Rare $9) (Incompatible)
-+$3 at end of round
 +$1 interest cap per scored 3
 > cash crop for a reason.
 
