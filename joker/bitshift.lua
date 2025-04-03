@@ -4,7 +4,7 @@ SMODS.Joker{
         name = 'Bit Shift',
         text = {
             'Halves the rank of',
-            '{C:attention}non-face cards{}',
+            '{C:attention}numbered cards{}',
             '{s:0.6}so yes, it rounds down.{}'
         },
     },
