@@ -51,3 +51,4 @@ for i = 1, #B.enabledJokers do
 end
 
 assert(SMODS.load_file('challenges.lua'))()
+assert(SMODS.load_file('decks.lua'))()
