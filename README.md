@@ -28,7 +28,7 @@ Panga khadi wa ma langi
 
 ## 1.0.0 Uncommons
 ### Bourgeoisie (Uncommon $5) (Blueprintable)
-1 in X chance to earn $X where X is the rank of each 7, 8, 9, or 10
+1 in X chance to earn $X where X is the rank of each scored 7, 8, 9, or 10
 > we support numbered card synergies.
 
 ### Board and Spilikins (Uncommon $5) (Blueprintable)
