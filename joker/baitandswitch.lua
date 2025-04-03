@@ -1,4 +1,4 @@
--- 1.0.2
+-- 1.0.3
 
 B.baitrares = {
    {x=0,y=3},
@@ -39,50 +39,48 @@ SMODS.Joker{
    blueprint_compat = false,
    eternal_compat = true,
    perishable_compat = true,
-   config = { extra = { fix = 0, catch = 0 }},
+   config = { extra = { fix = 0, catch = 0, amount = 0 }},
    pos = {x = 0, y = 0},
 	update = function(self, card, dt)
-      if card.ability.extra.fix == 1 and context ~= nil then
-         G.GAME.discount_percent = -100
-         if G.GAME.used_vouchers['v_clearance_sale'] == true then
-            G.GAME.discount_percent = -50
-         end
-         if G.GAME.used_vouchers['v_liquidation'] == true then
-            G.GAME.discount_percent = 0
-         end
-      end
       if card.ability.extra.fix == 0 and context ~= nil and pseudorandom('baitandswitch') > 0.5 then
          card:set_edition(poll_edition('tag', nil, false, true))
          card.ability.extra.fix = 0.5
       end
    end,
    calculate = function(self, card, context)
+      local j = 1
+      while j <= #G.jokers.cards do
+         if G.jokers.cards[j].config.center.key == 'j_bbb_baitandswitch' then 
+            card.ability.extra.amount = card.ability.extra.amount + 1
+         end
+         j = j + 1
+      end
+      print(card.ability.extra.amount)
+      G.GAME.discount_percent = 100 - (100*(2^card.ability.extra.amount))
+      if G.GAME.used_vouchers['v_clearance_sale'] == true then
+         G.GAME.discount_percent = 100 - ((100*(2^card.ability.extra.amount))/4)
+      end
+      if G.GAME.used_vouchers['v_liquidation'] == true then
+         G.GAME.discount_percent = 100 - ((100*(2^card.ability.extra.amount))/2)
+      end
+      card.ability.extra.amount = 0
       if context.end_of_round and not context.blueprint and card.ability.extra.fix == 1 and card.ability.extra.catch == 0 then
       G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 5
       card.ability.extra.catch = 1
       calculate_reroll_cost(true)
       end
       if context.ending_shop and card.ability.extra.fix == 1 then
-        card.ability.extra.catch = 0
+         card.ability.extra.catch = 0
+      end
+      if (context.selling_card or context.remove_playing_cards) and context.card == card and not context.blueprint then
+         card.ability.extra.amount = card.ability.extra.amount - 1
+         G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls - 5
       end
    end,
    add_to_deck = function(self, card, from_debuff)
       card.ability.extra.fix = 1
+
    end,
-   remove_from_deck = function(self, card, from_debuff)
-      if context ~= nil then
-         if not from_debuff and not context.blueprint then
-            G.GAME.discount_percent = 0
-            if G.GAME.used_vouchers['v_clearance_sale'] == true then
-               G.GAME.discount_percent = 25
-            end
-            if G.GAME.used_vouchers['v_liquidation'] == true then
-               G.GAME.discount_percent = 50
-            end
-            G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls - 5
-            end
-         end
-      end,
    set_sprites = function(self, card, front)
       if card and card.children and card.children.center and card.children.center.set_sprite_pos then
          card.children.center.atlas = G.ASSET_ATLAS['Joker']
