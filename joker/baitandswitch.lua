@@ -55,7 +55,6 @@ SMODS.Joker{
          end
          j = j + 1
       end
-      print(card.ability.extra.amount)
       G.GAME.discount_percent = 100 - (100*(2^card.ability.extra.amount))
       if G.GAME.used_vouchers['v_clearance_sale'] == true then
          G.GAME.discount_percent = 100 - ((100*(2^card.ability.extra.amount))/4)
