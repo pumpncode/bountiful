@@ -36,7 +36,7 @@ Panga khadi wa ma langi
 Played 5s give +15 Mult when scored if played hand contains a Jack
 > even unscoring Jacks, yes.
 
-### Bismuth (Uncommon $7) (Incompatible)
+### Bismuth (Uncommon $8) (Incompatible)
 -1 hand
 If first discard of hand has only 1 card, apply Polychrome to the discarded playing card
 > the gay teen among the toxic family.
