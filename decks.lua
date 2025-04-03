@@ -99,6 +99,7 @@ SMODS.Back{
     loc_txt = {
         name = 'Blanched Deck',
         text = {
+            '{C:attention}5s{} only',
             '{C:attention}5{} hands',
             '{C:attention}5{} discards',
             '{C:attention}5{} dollars',
@@ -110,9 +111,10 @@ SMODS.Back{
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                for _, card in ipairs(G.playing_cards) do
-                    if card:get_id() == 3 or card:get_id() == 7 or card:get_id() == 9 or card:get_id() == 14 then
-                    assert(SMODS.change_base(card, nil, '5'))
+                for i = #G.playing_cards, 1, -1 do
+                    local card = G.playing_cards[i]
+                    if card:get_id() ~= 5 then
+                        card:remove()
                     end
                 end
                 return true
