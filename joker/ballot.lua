@@ -14,7 +14,7 @@ SMODS.Joker {
         x = 0,
         y = 1
     },
-    rarity = 2,
+    rarity = 1,
     config = {
         extra = {
             chipgain = 0,
@@ -22,7 +22,7 @@ SMODS.Joker {
         }
     },
     blueprint_compat = true,
-    cost = 7,
+    cost = 6,
     loc_vars = function(self, info_queue, card)
         local bal = card.ability.extra
         return {
