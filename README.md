@@ -36,14 +36,15 @@ Played 5s give +15 Mult when scored if played hand contains a Jack
 If first discard of hand has only 1 card, apply Polychrome to the discarded playing card
 > the gay teen among the toxic family.
 
-### Ballot Box (Uncommon $7) (Blueprintable)
-Gains +1 Chip for every card scored
-> I played my part!
-
 ### Balancing Act (Uncommon $6) (Blueprintable)
 +3 hands and +2 discards
 Turns a hand into a discard when a hand is played and vice versa for discards
 > tip the scales, split the room
+
+ 
+### Brake Pedal (Uncommon $6) (Blueprintable)
+Destroys the first card in the winning hand and gains its chips
+> screeeeeeechhhh. crash.wav
 
 ## 1.0 Commons
 ### Beneficiary (Common $3) (Blueprintable)
@@ -71,9 +72,9 @@ Plays and retriggers unscored cards
 Discarding a Gold Card gives +$3
 > the deal of all time.
 
-### Brake Pedal (Common $5) (Blueprintable)
-Destroys the first card in the winning hand and gains its chips
-> screeeeeeechhhh. crash.wav
+### Ballot Box (Common $6) (Blueprintable)
+Gains +1 Chip for every card scored
+> I played my part!
 
 ### Beast (Common $5) (Blueprintable)
 Mult cards give +8 mult, 1 in 4 chance to make a Mult card when card destroyed or sold
