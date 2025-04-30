@@ -54,7 +54,7 @@ SMODS.Joker{
             end)
          }))
       end
-      if (context.selling_card or context.remove_playing_cards) and context.card == card and not context.blueprint then
+      if (context.selling_card or context.remove_playing_cards) and context.card == card and card.ability.extra.first ~= 0 and not context.blueprint then
          G.jokers.config.card_limit = G.jokers.config.card_limit - 2
          G.E_MANAGER:add_event(Event({
             func = (function()
