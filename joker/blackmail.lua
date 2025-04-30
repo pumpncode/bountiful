@@ -5,7 +5,7 @@ SMODS.Joker{
    loc_txt = {
       name = 'Blackmail',
       text = {
-         '{C:blue}+2{} Joker slots, {C:red}-2{} hands',
+         '{C:blue}+2{} Joker slots, {C:red}-3{} hands',
          'Creates a Boss Tag',
          'after blind played',
          'or when destroyed',
@@ -31,10 +31,18 @@ SMODS.Joker{
          }
       end
       if context.setting_blind and not context.blueprint then
-         ease_hands_played(-2)
-         return{
-            message = '-2 hands'
-         }
+         if G.GAME.current_round.hands_left > 3 then
+            ease_hands_played(-3)
+            return{
+               message = '-3 hands'
+            }
+         else
+            local hand_sub = G.GAME.current_round.hands_left - 1
+            ease_hands_played(-hand_sub)
+            return{
+               message = '-'..hand_sub..' hands'
+            }
+         end
       end
       if context.ending_shop and not context.blueprint then
          G.E_MANAGER:add_event(Event({
