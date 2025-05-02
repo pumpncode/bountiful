@@ -99,13 +99,13 @@ SMODS.Back{
     loc_txt = {
         name = 'Blanched Deck',
         text = {
-            '{C:attention}5s{} only',
-            '{C:attention}5{} hands',
-            '{C:attention}5{} discards',
-            '{C:attention}5{} dollars',
-            '{C:attention}5{} hand size',
-            '{C:attention}5{} joker slots',
-            '{C:attention}5{} consumable slots',
+            '{C:attention}4s{} only',
+            '{C:attention}4{} hands',
+            '{C:attention}4{} discards',
+            '{C:attention}4{} dollars',
+            '{C:attention}4{} hand size',
+            '{C:attention}4{} joker slots',
+            '{C:attention}4{} consumable slots',
         },
     },
     apply = function(self)
@@ -113,7 +113,7 @@ SMODS.Back{
             func = function()
                 for i = #G.playing_cards, 1, -1 do
                     local card = G.playing_cards[i]
-                    if card:get_id() ~= 5 then
+                    if card:get_id() ~= 4 then
                         card:remove()
                     end
                 end
@@ -121,7 +121,7 @@ SMODS.Back{
             end
         }))
     end,
-    config = {hand_size = -3, hands = 1, discards = 2, dollars = 1, consumable_slot = 3},
+    config = {hand_size = -4, hands = 4, discards = 4, dollars = 4, consumable_slot = 4},
     loc_vars = function(self)
         return { vars = { self.config.hand_size, self.config.hands, self.config.discards, self.config.dollars, self.config.consumable_slot}}
     end,
