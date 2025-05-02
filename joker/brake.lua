@@ -37,11 +37,15 @@ SMODS.Joker{
             end
             if context.other_card == context.scoring_hand[1] then
             return {
-                chips = card.ability.extra.chips,
                 message = '+'..(context.other_card.base.nominal + context.other_card.ability.bonus + context.other_card.ability.perma_bonus),
                 card = card
             }
             end
+        end
+        if context.joker_main then
+            return {
+               chips = card.ability.extra.chips,
+            }
         end
         if context.destroying_card and context.destroying_card.b_brake == true then
             return {
