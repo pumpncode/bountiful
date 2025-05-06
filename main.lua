@@ -38,7 +38,6 @@ B.enabledJokers = {
 'bourgeoisie',
 'brake',
 'brokerdealer',
-'bulletin',
 }
 
 -- Register the jokers in custom order
