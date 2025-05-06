@@ -2,14 +2,14 @@
 	"id": "b",
 	"name": "Bountiful", 
 	"author": ["canichatandobserve"],
-	"description": "Boutiful currently adds 20 jokers",
+	"description": "Boutiful currently adds 27 jokers",
 	"prefix": "bbb",
 	"main_file": "main.lua", 
-	"priority": -16,
+	"priority": 0,
 	"badge_colour": "BBBBBB", 
 	"badge_text_colour": "0B0B0B",
 	"display_name": "Bountiful", 
-	"version": "1.0.1",
+	"version": "1.0.4",
 	"dependencies": [
 		"Steamodded (>=1.*)",
 		"Lovely (>=0.6)"
