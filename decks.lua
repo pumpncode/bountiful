@@ -69,16 +69,19 @@ SMODS.Back{
     loc_txt = {
         name = 'Bleak Deck',
         text = {
-            'All cards are {C:dark_edition}Negative{}',
-            '{C:red}No money at end of round{}'
+            'Cards have {C:green}1 in 2{}',
+            'chance to be {C:dark_edition}Negative{}',
+            '{C:red}No money at end of round{}',
+            '{C:red}-2{} discards'
         },
     },
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
                 for i = #G.playing_cards, 1, -1 do
-                    local card = G.playing_cards[i]
-                    card:set_edition('e_negative', nil, true)
+                    if pseudorandom('bleak') < 0.5 then
+                        G.playing_cards[i]:set_edition('e_negative', nil, true)
+                    end
                 end
                 G.GAME.modifiers.no_blind_reward = G.GAME.modifiers.no_blind_reward or {}
                 G.GAME.modifiers.no_blind_reward.Small = true
@@ -89,7 +92,11 @@ SMODS.Back{
                 return true
             end
         }))
-    end
+    end,
+    config = {discards = -2},
+    loc_vars = function(self)
+        return { vars = { self.config.discards }}
+    end,
 }
 
 SMODS.Back{
@@ -100,7 +107,6 @@ SMODS.Back{
         name = 'Blanched Deck',
         text = {
             '{C:attention}4s{} only',
-            '{C:attention}4{} hands',
             '{C:attention}4{} discards',
             '{C:attention}4{} dollars',
             '{C:attention}4{} hand size',
@@ -121,8 +127,8 @@ SMODS.Back{
             end
         }))
     end,
-    config = {hand_size = -4, hands = 4, discards = 4, dollars = 4, consumable_slot = 4},
+    config = {hand_size = -4, discards = 1, consumable_slot = 2, joker_slot = -1},
     loc_vars = function(self)
-        return { vars = { self.config.hand_size, self.config.hands, self.config.discards, self.config.dollars, self.config.consumable_slot}}
+        return { vars = { self.config.hand_size, self.config.discards, self.config.joker_slot, self.config.consumable_slot}}
     end,
 }
