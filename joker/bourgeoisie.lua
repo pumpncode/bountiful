@@ -27,7 +27,7 @@ SMODS.Joker{
         if context.individual and context.cardarea == G.play then
             local rank = context.other_card:get_id()
             local lodds = G.GAME.probabilities.normal
-            if rank >= 7 and rank <= 10 and pseudorandom('b') < (lodds / rank ) then
+            if rank >= 7 and rank <= 10 and pseudorandom('bourgeoisie') < (lodds / rank ) then
                 card.ability.extra.dollars = 0
                 card.ability.extra.dollars = card.ability.extra.dollars + rank
                 return {

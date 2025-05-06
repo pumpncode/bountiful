@@ -12,7 +12,7 @@ SMODS.Joker{
     },
     atlas = 'jokers',
     rarity = 2,
-    cost = 8,
+    cost = 7,
     unlocked = true,
     discovered = false,
     blueprint_compat = false,
@@ -22,9 +22,9 @@ SMODS.Joker{
     pos = {x = 5, y = 0},
 	calculate = function(self, card, context)
         if context.first_hand_drawn and  G.GAME.current_round.hands_left > 1 and not context.blueprint then
-            ease_hands_played(-1)
+            G.GAME.current_round.hands_left = math.min(1, G.GAME.current_round.hands_left - 1)
             return {
-                message = "-1 Hand!",
+                message = '-1 Hand!',
                 colour = G.C.RED
             }
         end
@@ -32,7 +32,7 @@ SMODS.Joker{
             if #G.hand.highlighted == 1 and G.GAME.current_round.discards_used <= 0 then
                 context.other_card:set_edition('e_polychrome', 1, 1)
                 return {
-                    message = "Poly'd!",
+                    message = 'Poly\'d!',
                     colour = G.C.EDITION
                 }
             end

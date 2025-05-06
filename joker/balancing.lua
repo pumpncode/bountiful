@@ -30,8 +30,8 @@ SMODS.Joker{
     end,
 	calculate = function(self, card, context)
         if context.setting_blind then
-            ease_discard(2)
-            ease_hands_played(2)
+            ease_discard(card.ability.extra.discard)
+            ease_hands_played(card.ability.extra.hands)
             card.ability.extra.first = 1
             return{
                 message = 'Equal!'

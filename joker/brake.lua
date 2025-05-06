@@ -44,7 +44,7 @@ SMODS.Joker{
         end
         if context.joker_main then
             return {
-               chips = card.ability.extra.chips,
+                chips = card.ability.extra.chips,
             }
         end
         if context.destroying_card and context.destroying_card.b_brake == true then

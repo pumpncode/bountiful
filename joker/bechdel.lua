@@ -16,12 +16,10 @@ SMODS.Joker{
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    config = { extra = { chips = 0, mult = 0 }},
+    config = { extra = { chips = 19, mult = 86 }},
     pos = {x = 4, y = 0},
 	calculate = function(self, card, context)
         if context.joker_main then
-            card.ability.extra.chips = 0
-            card.ability.extra.mult = 0
             local count = 0
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i]:get_id() == 12 then
@@ -29,8 +27,6 @@ SMODS.Joker{
                 end
             end
             if count >= 2 then
-                card.ability.extra.mult = card.ability.extra.mult + 19
-                card.ability.extra.chips = card.ability.extra.chips + 86
                 return {
                     mult = card.ability.extra.mult,
                     chips = card.ability.extra.chips

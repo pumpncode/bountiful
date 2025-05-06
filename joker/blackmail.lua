@@ -1,5 +1,3 @@
---1.0.2
-
 SMODS.Joker{
    key = 'blackmail',
    loc_txt = {
@@ -32,18 +30,11 @@ SMODS.Joker{
       end
       if context.setting_blind and not context.blueprint then
          if G.GAME.current_round.hands_left > 3 then
-            ease_hands_played(-3)
-            return{
-               message = '-3 hands'
+            G.GAME.current_round.hands_left = math.min(1, G.GAME.current_round.hands_left - 3)
+            return {
+               message = '-3 hands',
+               colour = G.C.RED
             }
-         else
-            local hand_sub = G.GAME.current_round.hands_left - 1
-            if G.GAME.current_round.hands_left > 1 then
-            ease_hands_played(-hand_sub)
-            return{
-               message = '-'..hand_sub..' hands'
-            }
-            end
          end
       end
       if context.ending_shop and not context.blueprint then
