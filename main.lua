@@ -22,7 +22,6 @@ B.enabledJokers = {
 'baseten',
 'basicity',
 'bastedegg',
-'battery',
 'beast',
 'bechdel',
 'beneficiary',
