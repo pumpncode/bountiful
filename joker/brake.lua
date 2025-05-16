@@ -12,7 +12,7 @@ SMODS.Joker{
     },
     atlas = 'jokers',
     rarity = 2,
-    cost = 6,
+    cost = 6, 
     unlocked = true,
     discovered = false,
     blueprint_compat = true,
@@ -29,7 +29,7 @@ SMODS.Joker{
     end,
     pos = {x = 7, y = 1},
 	calculate = function(self, card, context)
-        if context.end_of_round and context.individual and context.cardarea == G.play then
+        if context.end_of_round and context.individual then
             if context.other_card == context.scoring_hand[1] and not context.blueprint then
                 context.other_card.b_brake = true
                 local hold = card.ability.extra.chips + (context.other_card.base.nominal + context.other_card.ability.bonus + context.other_card.ability.perma_bonus)
