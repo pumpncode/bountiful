@@ -16,7 +16,7 @@ SMODS.Joker{
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    config = { extra = { chips = 19, mult = 86 }},
+    config = { extra = { chips = 86, mult = 19 }},
     pos = {x = 4, y = 0},
 	calculate = function(self, card, context)
         if context.joker_main then
