@@ -18,9 +18,11 @@ B.enabledJokers = {
 'baseten',
 'basicity',
 'bastedegg',
+'battery',
 'beast',
 'bechdel',
 'beneficiary',
+'bill',
 'binder',
 'bismuth',
 'bitshift',
@@ -34,6 +36,7 @@ B.enabledJokers = {
 'bourgeoisie',
 'brake',
 'brokerdealer',
+'bulletin',
 }
 
 for i = 1, #B.enabledJokers do
