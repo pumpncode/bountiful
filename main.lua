@@ -7,6 +7,15 @@ SMODS.Atlas{
     py = 95
 }
 
+SMODS.Atlas{
+    key = 'blind',
+    path = 'blind.png',
+    px = 34,
+    py = 34,
+    frames = 21,
+    atlas_table = 'ANIMATION_ATLAS'
+}
+
 SMODS.Atlas {
     key = "modicon",
     path = "icon.png",
@@ -20,6 +29,7 @@ B.enabledJokers = {
 'bakingsoda',
 'balancing',
 'ballot',
+'bamboo',
 'banderole',
 'barley',
 'baseten',
@@ -54,3 +64,4 @@ end
 
 assert(SMODS.load_file('challenges.lua'))()
 assert(SMODS.load_file('decks.lua'))()
+assert(SMODS.load_file('blinds.lua'))()
