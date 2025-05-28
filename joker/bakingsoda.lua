@@ -17,7 +17,6 @@ SMODS.Joker{
     rarity = 1,
     config = {
         extra = {
-            repetitions = 1,
             g = 455,
         }
     },
@@ -33,16 +32,13 @@ SMODS.Joker{
         badges[#badges+1] = create_badge('suggested by @meptune', G.C.BLACK, G.C.WHITE, 0.8 )
     end,
     calculate = function(self, card, context)
-        if card.ability.extra.g == nil then
-            card.ability.extra.g = 455
-        end
         if context.modify_scoring_hand and not context.blueprint then
             for i=1, #context.full_hand do
                 context.full_hand[i].retrigger = true
                 for j=1, #context.scoring_hand do
-                if context.scoring_hand[j] == context.full_hand[i] then 
-                    context.full_hand[i].retrigger = false
-                else
+                   if context.scoring_hand[j] == context.full_hand[i] then 
+                      context.full_hand[i].retrigger = false
+                   else
             end end end
             return {
                 add_to_hand = true
@@ -56,7 +52,7 @@ SMODS.Joker{
                 )
                 return {
                     message = 'Again!',
-                    repetitions = card.ability.extra.repetitions,
+                    repetitions = 1,
                     card = context.other_card,
                 }
             end
