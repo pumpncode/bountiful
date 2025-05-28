@@ -10,10 +10,7 @@ SMODS.Joker {
         }
     },
     atlas = 'jokers',
-    pos = {
-        x = 0,
-        y = 1
-    },
+    pos = { x = 0, y = 1 },
     rarity = 1,
     config = {
         extra = {
