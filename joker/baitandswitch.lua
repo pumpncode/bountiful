@@ -78,12 +78,12 @@ SMODS.Joker{
       if (context.selling_card or context.remove_playing_cards) and context.card == card and not context.blueprint then
          card.ability.extra.amount = card.ability.extra.amount - 1
          G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls - 5
-         G.GAME.discount_percent = 100 - (100*(2^card.ability.extra.amount))
+         G.GAME.discount_percent = 100 * (1 - (2^card.ability.extra.amount))
          if G.GAME.used_vouchers['v_clearance_sale'] == true then
-            G.GAME.discount_percent = 100 - ((100*(2^card.ability.extra.amount))/4)
+            G.GAME.discount_percent = 100 - (2^card.ability.extra.amount * 25)
          end
          if G.GAME.used_vouchers['v_liquidation'] == true then
-            G.GAME.discount_percent = 100 - ((100*(2^card.ability.extra.amount))/2)
+            G.GAME.discount_percent = 100 - (2^card.ability.extra.amount * 50)
          end
       end
       -- yes i have to put this here
