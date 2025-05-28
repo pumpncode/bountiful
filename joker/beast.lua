@@ -35,7 +35,7 @@ SMODS.Joker{
             create_playing_card({front = pseudorandom_element(G.P_CARDS, pseudoseed('beast')), center = G.P_CENTERS.m_mult}, G.deck, nil, nil, {G.C.BLUE})
             return {
                 message = "+1 Mult Card",
-                colour = G.C.RED,
+                colour = G.C.MULT,
                 playing_cards_created = {true}
             }
         end
