@@ -21,9 +21,8 @@ SMODS.Joker {
     blueprint_compat = true,
     cost = 6,
     loc_vars = function(self, info_queue, card)
-        local bal = card.ability.extra
         return {
-            vars = { bal.chipgain }
+            vars = { card.ability.extra.chipgain }
         }
     end,
     set_badges = function(self, card, badges)
