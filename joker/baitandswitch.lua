@@ -31,11 +31,11 @@ SMODS.Joker{
                count = count * 2
             end
          end
-         G.GAME.discount_percent = 1 - count * 100
+         G.GAME.discount_percent = (1 - count) * 100
          if G.GAME.used_vouchers['v_liquidation'] == true then
-            G.GAME.discount_percent = 2 - count * 50
+            G.GAME.discount_percent = (2 - count) * 50
          elseif G.GAME.used_vouchers['v_clearance_sale'] == true then
-            G.GAME.discount_percent = 4 - count * 25
+            G.GAME.discount_percent = (4 - count) * 25
          end
       elseif context.end_of_round and not context.blueprint and card.ability.extra.bought == 1 then
          G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 5
