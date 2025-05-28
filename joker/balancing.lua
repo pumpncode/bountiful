@@ -52,8 +52,7 @@ SMODS.Joker{
             return {
                 message = 'Tipped!'
             }
-        end
-        if context.selling_self or (context.remove_playing_cards and context.card == card) then
+	elseif context.selling_self or (context.remove_playing_cards and context.card == card) then
             ease_discard(-card.ability.extra.discard)
             ease_hands_played(-card.ability.extra.hands)
         end
