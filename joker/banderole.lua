@@ -3,25 +3,23 @@ SMODS.Joker{
     loc_txt = {
         name = 'Banderole',
         text = {
-            'Gains {C:chips}+5{} Chips per',
+            'Gains {C:chips}+#1#{} Chips per',
             'remaining {C:red}discard{}',
             'at the end of round',
-            '{C:inactive}Currently +#1#{}',
+            '{C:inactive}Currently +#2#{}',
             '{s:0.6}fly everywhere{}'
         },
     },
     atlas = 'jokers',
     rarity = 2,
     cost = 6,
-    unlocked = true,
-    discovered = false,
     blueprint_compat = true,
-    eternal_compat = true,
-    perishable_compat = true,
-    config = { extra = { chips = 0 }},
+    demicoloncompat = true,
+    perishable_compat = false,
+    config = { extra = { chips = 0, chip_mod = 5 }},
     pos = {x = 3, y = 3},
     loc_vars = function(self, info_queue, card)
-        return { vars = {card.ability.extra.chips}}
+        return { vars = {card.ability.extrachip_mod, card.ability.extra.chips}}
     end,
 	calculate = function(self, card, context)
         if context.joker_main then
