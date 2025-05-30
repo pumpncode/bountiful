@@ -3,7 +3,7 @@ SMODS.Joker {
    loc_txt = {
       name = 'Ballot Box',
       text = {
-      'Gains {C:chips}+1{} Chip for',
+      'Gains {C:chips}+#2#{} Chip for',
       'every {C:attention}card score{}',
       '{C:inactive}Currently{} {C:chips}+#1#{}',
       '{s:0.6}I played my part!{}'
@@ -17,7 +17,7 @@ SMODS.Joker {
    perishable_compat = false,
    config = { extra = { chips = 0, chip_mod = 1 } },
    loc_vars = function(self, info_queue, card)
-      return { vars = { card.ability.extra.chipgain } }
+      return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod } }
    end,
    calculate = function(self, card, context)
       if context.individual and context.cardarea == G.play and not context.blueprint then
