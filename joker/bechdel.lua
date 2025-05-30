@@ -11,11 +11,8 @@ SMODS.Joker{
     atlas = 'jokers',
     rarity = 1,
     cost = 4,
-    unlocked = true,
-    discovered = false,
     blueprint_compat = true,
-    eternal_compat = true,
-    perishable_compat = true,
+    demicoloncompat = true,
     config = { extra = { chips = 86, mult = 19 }},
     pos = {x = 4, y = 0},
 	calculate = function(self, card, context)
