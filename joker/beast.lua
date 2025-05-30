@@ -13,12 +13,7 @@ SMODS.Joker{
     atlas = 'jokers',
     rarity = 1,
     cost = 4,
-    unlocked = true,
-    discovered = false,
     blueprint_compat = true,
-    eternal_compat = true,
-    perishable_compat = true,
-    config = {},
     pos = {x = 8, y = 1},
     loc_vars = function(self, info_queue, card) 
         return { vars = {(G.GAME.probabilities.normal or 1)}}
