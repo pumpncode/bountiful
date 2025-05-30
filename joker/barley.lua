@@ -14,11 +14,8 @@ SMODS.Joker{
    atlas = 'jokers',
    rarity = 3,
    cost = 9,
-   unlocked = true,
-   discovered = false,
    blueprint_compat = false,
-   eternal_compat = true,
-   perishable_compat = true,
+   demicoloncompat = true,
    loc_vars = function(self, info_queue, card)
       return {
          vars = { card.ability.extra.interest }
