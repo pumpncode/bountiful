@@ -3,7 +3,7 @@ SMODS.Joker{
     loc_txt = {
         name = 'Bobber',
         text = {
-            '{X:mult,C:white}x3{} Mult if cards',
+            '{X:mult,C:white}x#1#{} Mult if cards',
             '{C:attention}held in hand{} do not',
             'contain a {C:attention}Pair{}',
             '{s:0.6}fish for your cards slowly{}'
@@ -17,7 +17,10 @@ SMODS.Joker{
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    config = { extra = { allow = 0, xmult = 3, pool = {}}},
+    config = { extra = { allow = false, xmult = 3, pool = {}}},
+    loc_vars = function(self, info_queue, card)
+      return { vars = { card.ability.extra.xmult } }
+    end,
     pos = {x = 7, y = 2},
 	calculate = function(self, card, context)
         if context.setting_blind then
