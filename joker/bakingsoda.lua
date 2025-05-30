@@ -10,26 +10,16 @@ SMODS.Joker{
         }
     },
     atlas = 'jokers',
-    pos = {
-        x = 2,
-        y = 1
-    },
+    pos = { x = 2, y = 1 },
     rarity = 1,
-    config = {
-        extra = {
-            g = 455,
-        }
-    },
+    cost = 4,
+    config = { extra = { g = 455 } },
     blueprint_compat = true,
     eternal_compat = false,
-    cost = 4,
     loc_vars = function(self, info_queue, card)
         return {
             vars = { card.ability.extra.g }
         }
-    end,
-    set_badges = function(self, card, badges)
-        badges[#badges+1] = create_badge('suggested by @meptune', G.C.BLACK, G.C.WHITE, 0.8 )
     end,
     calculate = function(self, card, context)
         if context.modify_scoring_hand and not context.blueprint then
@@ -57,5 +47,8 @@ SMODS.Joker{
                 }
             end
         end
+    end,
+    set_badges = function(self, card, badges)
+        badges[#badges+1] = create_badge('suggested by @meptune', G.C.BLACK, G.C.WHITE, 0.8 )
     end
 }
