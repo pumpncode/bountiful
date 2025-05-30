@@ -17,13 +17,13 @@ SMODS.Joker{
     blueprint_compat = false,
     eternal_compat = true,
     perishable_compat = true,
-    config = { extra = { justcreated = 1 }},
+    config = { extra = { justcreated = false }},
     pos = {x = 7, y = 3},
     calculate = function(self, card, context)
         if context.end_of_round then
-            card.ability.extra.justcreated = 0
+            card.ability.extra.justcreated = true
         end
-        if context.setting_blind and card.ability.extra.justcreated == 0 and (#G.jokers.cards + G.GAME.joker_buffer) < G.jokers.config.card_limit and not context.blueprint then
+        if context.setting_blind and card.ability.extra.justcreated and (#G.jokers.cards + G.GAME.joker_buffer) < G.jokers.config.card_limit and not context.blueprint then
             if pseudorandom('bamboo') > 0.5 then
                 SMODS.add_card{ key = "j_bbb_bamboo", area = G.jokers, edition = poll_edition('tag', nil, false, true) }
             else
