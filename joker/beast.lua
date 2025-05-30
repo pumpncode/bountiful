@@ -14,6 +14,7 @@ SMODS.Joker{
     rarity = 1,
     cost = 4,
     blueprint_compat = true,
+    demicoloncompat = true,
     pos = {x = 8, y = 1},
     loc_vars = function(self, info_queue, card) 
         return { vars = {(G.GAME.probabilities.normal or 1)}}
