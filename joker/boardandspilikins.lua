@@ -12,9 +12,8 @@ SMODS.Joker{
     atlas = 'jokers',
     rarity = 2,
     cost = 5,
-    unlocked = true,
-    discovered = false,
     blueprint_compat = true,
+    demicoloncompat = true,
     config = { extra = { mult = 15 }},
     pos = {x = 1, y = 0},
     set_badges = function(self, card, badges)
