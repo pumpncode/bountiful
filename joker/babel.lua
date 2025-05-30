@@ -12,7 +12,6 @@ SMODS.Joker{
    rarity = 3,
    cost = 9,
    blueprint_compat = true,
-   config = { extra = { chips = 0 } },
    loc_vars = function(self, info_queue, card)
       local string = "k_babel_"
       local sd = pseudorandom_element({1,2,3,4,5,6,7}, pseudoseed("babel"))
