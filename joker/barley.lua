@@ -21,7 +21,7 @@ SMODS.Joker{
    perishable_compat = true,
    loc_vars = function(self, info_queue, card)
       return {
-         vars = { card.ability.extra.interest }
+         vars = { (G.GAME.interest_cap/5)-5 }
       }
    end,
    config = { extra = {interest = 0}},
@@ -29,9 +29,8 @@ SMODS.Joker{
 	calculate = function(self, card, context)
       if context.individual and context.cardarea == G.play and not context.blueprint then
          if context.other_card:get_id() == 3 then
-            local cap = G.GAME.interest_cap
-            G.GAME.interest_cap = cap + 5
-            card.ability.extra.interest = (G.GAME.interest_cap/5)-5
+            card.ability.extra.interest = card.ability.extra.interest + 1
+	    G.GAME.interest_cap = G.GAME.interest_cap + card.ability.extra.interest * 5
             return {
                message = '+!',
                card = card
