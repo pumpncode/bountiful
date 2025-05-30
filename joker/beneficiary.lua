@@ -4,7 +4,7 @@ SMODS.Joker{
         name = 'Beneficiary',
         text = {
             'Sell this card for',
-            '{C:attention}+30{} Bonus Cards',
+            '{C:attention}+#1#{} Bonus Cards',
             '{s:0.6}pulled this from Judgement? fish for Dagger.{}'
         },
     },
@@ -16,11 +16,14 @@ SMODS.Joker{
     blueprint_compat = true,
     eternal_compat = false,
     perishable_compat = true,
-    config = {},
+    config = { cards = 30 },
+    loc_vars = function(self, info_queue, card)
+      return { vars = { card.ability.extra.cards } }
+    end,
     pos = {x = 6, y = 0},
 	calculate = function(self, card, context)
         if context.selling_self then
-            for i=1,30,1 do
+            for i=1, math.floor(card.ability.extra.cards), 1 do
             create_playing_card({front = pseudorandom_element(G.P_CARDS, pseudoseed('birthrate')), center = G.P_CENTERS.m_bonus}, G.deck, nil, nil, {G.C.BLUE})
             end
             return {
