@@ -18,12 +18,12 @@ SMODS.Joker{
    blueprint_compat = false,
    eternal_compat = true,
    perishable_compat = true,
-   config = { extra = { first = 0 }},
+   config = { extra = { set = false }},
    pos = {x = 4, y = 1},
 	calculate = function(self, card, context)
-      if card.ability.extra.first == 0 and not context.blueprint then
+      if not card.ability.extra.set and not context.blueprint then
          G.jokers.config.card_limit = G.jokers.config.card_limit + 2
-         card.ability.extra.first = 1
+         card.ability.extra.set = true
          return{
             message = '+2 Slots'
          }
