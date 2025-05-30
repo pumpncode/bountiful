@@ -12,22 +12,13 @@ SMODS.Joker{
       }
    },
    atlas = 'jokers',
-   pos = {
-      x = 1,
-      y = 1
-   },
+   pos = { x = 1, y = 1 },
    rarity = 3,
-   config = {
-      extra = {
-         chipgain = 0,
-      }
-   },
-   blueprint_compat = true,
    cost = 7,
+   blueprint_compat = true,
+   config = { extra = { chips = 0, chip_mod = 15 } },
    loc_vars = function(self, info_queue, card)
-      return {
-         vars = { card.ability.extra.chipgain }
-      }
+      return { vars = { card.ability.extra.chipgain } }
    end,
    set_badges = function(self, card, badges)
       badges[#badges+1] = create_badge('suggested by @normalben', G.C.BLACK, G.C.WHITE, 0.8 )
@@ -42,14 +33,14 @@ SMODS.Joker{
          end
       end
       if handname ~= context.scoring_name and not context.blueprint then
-         card.ability.extra.chipgain = card.ability.extra.chipgain + 15
+         card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod
          return {
             message = 'Whoops!',
             colour = G.C.CHIPS,
          }
       end
       return {
-         chips = card.ability.extra.chipgain
+         chips = card.ability.extra.chips
       }
    end
 end
