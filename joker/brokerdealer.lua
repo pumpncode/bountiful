@@ -16,13 +16,11 @@ SMODS.Joker{
     blueprint_compat = true,
     eternal_compat = true,
     perishable_compat = true,
-    config = { extra = { dollars = 0 }},
+    config = { extra = { dollars = 3 }},
     pos = {x = 2, y = 0},
 	calculate = function(self, card, context)
         if context.discard then
             if SMODS.has_enhancement(context.other_card, "m_gold") then
-                card.ability.extra.dollars = 0
-                card.ability.extra.dollars = card.ability.extra.dollars + 3
                 return {
                     dollars = card.ability.extra.dollars
                 }
