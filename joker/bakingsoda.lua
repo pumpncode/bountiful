@@ -16,6 +16,7 @@ SMODS.Joker{
     config = { extra = { g = 455 } },
     blueprint_compat = true,
     eternal_compat = false,
+    demicoloncompat = true,
     loc_vars = function(self, info_queue, card)
         return {
             vars = { card.ability.extra.g }
