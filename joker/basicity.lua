@@ -12,6 +12,7 @@ SMODS.Joker{
    rarity = 1,
    cost = 3,
    blueprint_compat = true,
+   demicoloncompat = true,
    config = { extra = { mult_mod = 3, chip_mod = 14 }},
    pos = {x = 9, y = 0},
    loc_vars = function(self, info_queue, card)
