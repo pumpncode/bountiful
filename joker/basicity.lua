@@ -4,7 +4,7 @@ SMODS.Joker{
       name = 'Basicity',
       text = {
          '{C:blue}Common{} Jokers give',
-         '{C:chips}+14{} Chips and {C:mult}+3{} Mult',
+         '{C:chips}+#1#{} Chips and {C:mult}+#2#{} Mult',
          '{s:0.6}7 in 15 people are basic{}',
       },
    },
@@ -14,6 +14,9 @@ SMODS.Joker{
    blueprint_compat = true,
    config = { extra = { mult_mod = 3, chip_mod = 14 }},
    pos = {x = 9, y = 0},
+   loc_vars = function(self, info_queue, card)
+      return { vars = {card.ability.extra.chip_mod, card.ability.extra.mult_mod}}
+   end,
    calculate = function(self, card, context)
       if context.joker_main then
          local mult = 0
