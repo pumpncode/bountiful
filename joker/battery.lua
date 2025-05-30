@@ -4,7 +4,7 @@ SMODS.Joker{
         name = 'Battery',
         text = {
         'Played {C:attention}5s{} gain',
-        '{X:mult,C:white}X0.04{} Mult',
+        '{X:mult,C:white}X#1#{} Mult',
         '{s:0.6}go my nubby{}'
         }
     },
@@ -16,7 +16,6 @@ SMODS.Joker{
     rarity = 3,
     config = {
         extra = {
-            rank = 5,
             x_mult = 0.04,
         }
     },
@@ -25,7 +24,7 @@ SMODS.Joker{
     cost = 4,
     loc_vars = function(self, info_queue, card)
         return {
-            vars = { card.ability.extra.rank, card.ability.extra.x_mult }
+            vars = { card.ability.extra.x_mult }
         }
     end,
     calculate = function(self, card, context)
