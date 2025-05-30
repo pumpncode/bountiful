@@ -9,19 +9,12 @@ SMODS.Joker{
         }
     },
     atlas = 'jokers',
-    pos = {
-        x = 0,
-        y = 3
-    },
+    pos = { x = 0, y = 3 },
     rarity = 3,
-    config = {
-        extra = {
-            x_mult = 0.04,
-        }
-    },
-    blueprint_compat = true,
-    eternal_compat = true,
     cost = 4,
+    blueprint_compat = true,
+    demicoloncompat = true,
+    config = { extra = { x_mult = 0.04 } },
     loc_vars = function(self, info_queue, card)
         return {
             vars = { card.ability.extra.x_mult }
