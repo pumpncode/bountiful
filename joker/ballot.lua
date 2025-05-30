@@ -15,6 +15,7 @@ SMODS.Joker {
    cost = 6,
    blueprint_compat = true,
    perishable_compat = false,
+   demicoloncompat = true,
    config = { extra = { chips = 0, chip_mod = 1 } },
    loc_vars = function(self, info_queue, card)
       return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod } }
