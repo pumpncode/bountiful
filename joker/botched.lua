@@ -16,6 +16,7 @@ SMODS.Joker{
    rarity = 3,
    cost = 7,
    blueprint_compat = true,
+   demicoloncompat = true,
    config = { extra = { chips = 0, chip_mod = 15 } },
    loc_vars = function(self, info_queue, card)
       return { vars = { card.ability.extra.chipgain } }
