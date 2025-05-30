@@ -21,7 +21,7 @@ SMODS.Joker{
    perishable_compat = true,
    loc_vars = function(self, info_queue, card)
       return {
-         vars = { (G.GAME.interest_cap/5)-5 }
+         vars = { card.ability.extra.interest }
       }
    end,
    config = { extra = {interest = 0}},
