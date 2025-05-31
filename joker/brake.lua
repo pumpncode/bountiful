@@ -3,16 +3,15 @@ SMODS.Joker{
     loc_txt = {
         name = 'Brake Pedal',
         text = {
-            'Destroys the {C:attention}{}first card{}',
-            'in the winning hand and',
-            'gains its {C:chips}chips{}',
+            'Destroys the {C:attention}{}first played{}',
+            'card and gains its {C:chips}Chips{}',
             '{C:inactive}Currently{} {C:chips}+#1#{}',
             '{s:0.6}screeeeeeechhhh. crash.wav{}'
         },
     },
     atlas = 'jokers',
-    rarity = 2,
-    cost = 6, 
+    rarity = 3,
+    cost = 9, 
     blueprint_compat = true,
     perishable_compat = false,
     config = { extra = { chips = 0 }},
@@ -26,27 +25,22 @@ SMODS.Joker{
     end,
     pos = {x = 7, y = 1},
 	calculate = function(self, card, context)
-        if context.end_of_round and context.individual then
-            if context.other_card == context.scoring_hand[1] and not context.blueprint then
-                context.other_card.b_brake = true
-                local hold = card.ability.extra.chips + (context.other_card.base.nominal + context.other_card.ability.bonus + context.other_card.ability.perma_bonus)
-                card.ability.extra.chips = hold
-            end
-            if context.other_card == context.scoring_hand[1] then
+        if context.individual and context.cardarea == G.play then
+            context.full_hand[1].b_brake = true
+            card.ability.extra.chips = card.ability.extra.chips + context.other_card.base.nominal + context.other_card.ability.bonus + context.other_card.ability.perma_bonus
             return {
                 message = '+'..(context.other_card.base.nominal + context.other_card.ability.bonus + context.other_card.ability.perma_bonus),
                 card = card
-            }
-            end
-        end
-        if context.joker_main then
-            return {
-                chips = card.ability.extra.chips,
             }
         end
         if context.destroying_card and context.destroying_card.b_brake == true then
             return {
                 remove = true,
+            }
+        end
+        if context.joker_main then
+            return {
+                chips = card.ability.extra.chips,
             }
         end
     end
