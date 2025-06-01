@@ -25,7 +25,7 @@ SMODS.Joker{
     end,
     pos = {x = 7, y = 1},
 	calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play then
+        if context.individual and context.cardarea == G.play and context.full_hand[1] == context.other_card then
             context.full_hand[1].b_brake = true
             card.ability.extra.chips = card.ability.extra.chips + context.other_card.base.nominal + context.other_card.ability.bonus + context.other_card.ability.perma_bonus
             return {
@@ -45,3 +45,4 @@ SMODS.Joker{
         end
     end
 }
+
