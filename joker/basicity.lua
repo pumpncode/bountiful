@@ -9,15 +9,16 @@ SMODS.Joker{
       },
    },
    atlas = 'jokers',
+   pos = {x = 9, y = 0},
    rarity = 1,
    cost = 3,
    blueprint_compat = true,
    demicoloncompat = true,
    config = { extra = { mult_mod = 3, chip_mod = 14 }},
-   pos = {x = 9, y = 0},
    loc_vars = function(self, info_queue, card)
       return { vars = {card.ability.extra.chip_mod, card.ability.extra.mult_mod}}
    end,
+   pools = {["Joker"] = true},
    calculate = function(self, card, context)
       if context.joker_main then
          local mult = 0

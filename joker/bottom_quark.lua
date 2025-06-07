@@ -12,6 +12,7 @@ SMODS.Joker{
       },
    },
    atlas = 'jokers',
+   pos = {x = 2, y = 2},
    rarity = 2,
    cost = 7,
    unlocked = true,
@@ -20,8 +21,8 @@ SMODS.Joker{
    eternal_compat = true,
    perishable_compat = true,
    config = { extra = { set = false }},
-   pos = {x = 2, y = 2},
-	calculate = function(self, card, context)
+   pools = {["Joker"] = true},
+   calculate = function(self, card, context)
       if not card.ability.extra.set and G.GAME.spectral_rate < 2 and not context.blueprint then
          G.GAME.spectral_rate = G.GAME.spectral_rate + 2
          card.ability.extra.set = true

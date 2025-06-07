@@ -21,6 +21,7 @@ SMODS.Joker{
    loc_vars = function(self, info_queue, card)
       return { vars = { card.ability.extra.chipgain } }
    end,
+   pools = {["Joker"] = true},
    set_badges = function(self, card, badges)
       badges[#badges+1] = create_badge('suggested by @normalben', G.C.BLACK, G.C.WHITE, 0.8 )
    end,

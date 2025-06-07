@@ -12,17 +12,16 @@ SMODS.Joker{
       },
    },
    atlas = 'jokers',
+   pos = {x = 9, y = 1},
    rarity = 3,
    cost = 9,
    blueprint_compat = false,
    demicoloncompat = true,
-   loc_vars = function(self, info_queue, card)
-      return {
-         vars = { card.ability.extra.interest }
-      }
-   end,
    config = { extra = {interest = 0}},
-   pos = {x = 9, y = 1},
+   loc_vars = function(self, info_queue, card)
+      return { vars = { card.ability.extra.interest } }
+   end,
+   pools = {["Joker"] = true},
 	calculate = function(self, card, context)
       if context.individual and context.cardarea == G.play and not context.blueprint then
          if context.other_card:get_id() == 3 then

@@ -10,6 +10,7 @@ SMODS.Joker{
       },
    },
    atlas = 'jokers',
+   pos = {x = 9, y = 2},
    rarity = 2,
    cost = 7,
    unlocked = true,
@@ -22,8 +23,8 @@ SMODS.Joker{
       return {
           vars = { G.GAME.probabilities.normal, card.ability.extra.chance }
       }
-  end,
-   pos = {x = 9, y = 2},
+   end,
+   pools = {["Joker"] = true},
 	calculate = function(self, card, context)
       if context.joker_main then
          for i = 1, #G.play.cards do

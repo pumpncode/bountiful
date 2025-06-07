@@ -20,6 +20,7 @@ SMODS.Joker {
    loc_vars = function(self, info_queue, card)
       return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod } }
    end,
+   pools = {["Joker"] = true},
    calculate = function(self, card, context)
       if context.individual and context.cardarea == G.play and not context.blueprint then
          card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chip_mod

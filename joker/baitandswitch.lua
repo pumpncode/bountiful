@@ -13,10 +13,11 @@ SMODS.Joker{
       },
    },
    atlas = 'jokers',
+   pos = {x = 0, y = 0},
    rarity = 1,
    cost = 5,
    config = { extra = { bought = false, editioned = false, catch = 0 }},
-   pos = {x = 0, y = 0},
+   pools = {["Joker"] = true},
    update = function(self, card, dt)
       if not card.ability.extra.bought and not card.ability.extra.editioned and card.edition == 'e_base' and pseudorandom('baitandswitch') > 0.5 then
          card:set_edition(poll_edition('tag', nil, false, true))

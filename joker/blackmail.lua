@@ -11,6 +11,7 @@ SMODS.Joker{
       },
    },
    atlas = 'jokers',
+   pos = {x = 4, y = 1},
    rarity = 1,
    cost = 5,
    unlocked = true,
@@ -19,7 +20,7 @@ SMODS.Joker{
    eternal_compat = true,
    perishable_compat = true,
    config = { extra = { set = false }},
-   pos = {x = 4, y = 1},
+   pools = {["Joker"] = true},
 	calculate = function(self, card, context)
       if not card.ability.extra.set and not context.blueprint then
          G.jokers.config.card_limit = G.jokers.config.card_limit + 2
