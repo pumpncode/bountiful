@@ -3,7 +3,7 @@ SMODS.Joker{
    loc_txt = {
       name = 'Bechdel Test',
       text = {
-         '{C:mult}+19{} Mult and {C:chips}+86{} Chips if',
+         '{C:mult}+#1#{} Mult and {C:chips}+#2#{} Chips if',
          'played hand contains two {C:attention}Queens{}',
          '{s:0.6}that presumedly aren\'t talking about a King.{}'
       },
@@ -15,6 +15,9 @@ SMODS.Joker{
    blueprint_compat = true,
    demicoloncompat = true,
    config = { extra = { chips = 86, mult = 19 }},
+   loc_vars = function(self, info_queue, card)
+      return { vars = { card.ability.extra.mult, card.ability.extra.chips }}
+   end,
    pools = {["Joker"] = true},
    calculate = function(self, card, context)
       if context.joker_main then

@@ -3,7 +3,7 @@ SMODS.Joker{
    loc_txt = {
       name = 'Board and Spilikins',
       text = {
-         'Played {C:attention}5s{} give {C:mult}+15{} Mult',
+         'Played {C:attention}5s{} give {C:mult}+#1#{} Mult',
          'when scored if played',
          'hand contains a {C:attention}Jack{}',
          '{s:0.6}even unscoring Jacks, yes.{}'
@@ -16,6 +16,9 @@ SMODS.Joker{
    blueprint_compat = true,
    demicoloncompat = true,
    config = { extra = { mult = 15 }},
+   loc_vars = function(self, info_queue, card)
+      return { vars = { card.ability.extra.mult }}
+   end,
    pools = {["Joker"] = true},
    set_badges = function(self, card, badges)
       badges[#badges+1] = create_badge('suggested by @ironic_', G.C.BLACK, G.C.WHITE, 0.8 )

@@ -3,7 +3,7 @@ SMODS.Joker{
    loc_txt = {
       name = 'Botched',
       text = {
-      'Gains {C:chips}+15{} Chips for',
+      'Gains {C:chips}+#2#{} Chips for',
       'every {C:attention}hand played{}',
       'that is not your',
       'most played hand',
@@ -19,7 +19,7 @@ SMODS.Joker{
    demicoloncompat = true,
    config = { extra = { chips = 0, chip_mod = 15 } },
    loc_vars = function(self, info_queue, card)
-      return { vars = { card.ability.extra.chipgain } }
+      return { vars = { card.ability.extra.chips, card.ability.extra.chip_mod } }
    end,
    pools = {["Joker"] = true},
    set_badges = function(self, card, badges)
