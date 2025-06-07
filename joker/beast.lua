@@ -3,7 +3,7 @@ SMODS.Joker{
    loc_txt = {
       name = 'Beast Card',
       text = {
-         '{C:mult}Mult{} cards give {C:mult}+8{} Mult',
+         '{C:mult}Mult{} cards give {C:mult}+#2#{} Mult',
          '{C:green}#1# in 4{} chance to make',
          'a {C:mult}Mult{} card when card ',
          'destroyed or sold',
@@ -16,15 +16,16 @@ SMODS.Joker{
    cost = 4,
    blueprint_compat = true,
    demicoloncompat = true,
+   config = { extra = { mult = 8 }},
    loc_vars = function(self, info_queue, card) 
-      return { vars = {(G.GAME.probabilities.normal or 1)}}
+      return { vars = {(G.GAME.probabilities.normal or 1), card.ability.extra.mult}}
    end,
    pools = {["Joker"] = true},
    calculate = function(self, card, context)
       if context.individual and context.cardarea == G.play then
          if SMODS.has_enhancement(context.other_card, "m_mult") then
          return {
-            mult = 8
+            mult = card.ability.extra.mult
          }
          end
       end
