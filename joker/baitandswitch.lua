@@ -57,8 +57,8 @@ SMODS.Joker{
    end,
    set_sprites = function(self, card, front)
       if card and card.children and card.children.center and card.children.center.set_sprite_pos and self.discovered then
-        card.children.center.atlas = G.ASSET_ATLAS['Joker']
-        card.children.center:set_sprite_pos(pseudorandom_element(B.baitrares, pseudoseed('bait')))
+         card.children.center.atlas = G.ASSET_ATLAS['Joker']
+         card.children.center:set_sprite_pos(pseudorandom_element(B.baitrares, pseudoseed('bait')))
       end
    end,
 }
