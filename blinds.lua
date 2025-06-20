@@ -7,9 +7,9 @@ SMODS.Blind {
     boss = { min = -100 },
     mult = 1,
     loc_vars = function(self)
-        if G.GAME and G.GAME.round_resets and G.GAME.round_resets.ante then
-            if G.GAME.round_resets.ante > 0 then
-                return {vars = { G.GAME.round_resets.ante }}
+        if G.GAME and G.GAME.round_resets and to_number(G.GAME.round_resets.ante) then
+            if to_number(G.GAME.round_resets.ante) > 0 then
+                return {vars = { to_number(G.GAME.round_resets.ante) }}
             else
                 return {vars = { 1 }}
             end
@@ -28,8 +28,8 @@ SMODS.Blind {
         if context.final_scoring_step then
             local chips = _G.hand_chips or 0
             local call
-            if G.GAME.round_resets.ante > 0 then
-                call = (#G.deck.cards * G.GAME.round_resets.ante)
+            if to_number(G.GAME.round_resets.ante) > 0 then
+                call = (#G.deck.cards * to_number(G.GAME.round_resets.ante))
             else
                 call = #G.deck.cards
             end
@@ -57,9 +57,9 @@ SMODS.Blind {
     boss = { min = -100 },
     mult = 2,
     loc_vars = function(self)
-        if G.GAME and G.GAME.round_resets and G.GAME.round_resets.ante then
-            if G.GAME.round_resets.ante > 0 then
-                return {vars = { 2 * G.GAME.round_resets.ante }}
+        if G.GAME and G.GAME.round_resets and to_number(G.GAME.round_resets.ante) then
+            if to_number(G.GAME.round_resets.ante) > 0 then
+                return {vars = { 2 * to_number(G.GAME.round_resets.ante) }}
             else
                 return {vars = { 2 }}
             end
@@ -78,8 +78,8 @@ SMODS.Blind {
         if context.final_scoring_step then
             local mult = _G.mult or 0
             local call
-            if G.GAME.round_resets.ante > 0 then
-                call = (math.floor(G.GAME.dollars / 5) * G.GAME.round_resets.ante * 2)
+            if to_number(G.GAME.round_resets.ante) > 0 then
+                call = (math.floor(G.GAME.dollars / 5) * to_number(G.GAME.round_resets.ante) * 2)
             else
                 call = 2
             end
@@ -132,9 +132,9 @@ SMODS.Blind {
     boss = { min = 3 },
     mult = 2,
     loc_vars = function(self)
-        if G.GAME and G.GAME.round_resets and G.GAME.round_resets.ante then
-            if G.GAME.round_resets.ante > 0 then
-                return {vars = { 2 + G.GAME.round_resets.ante }}
+        if G.GAME and G.GAME.round_resets and to_number(G.GAME.round_resets.ante) then
+            if to_number(G.GAME.round_resets.ante) > 0 then
+                return {vars = { 2 + to_number(G.GAME.round_resets.ante) }}
             else
                 return {vars = { 2 }}
             end
@@ -153,8 +153,8 @@ SMODS.Blind {
         if context.final_scoring_step then
             local chips = _G.hand_chips or 0
             local call
-            if G.GAME.round_resets.ante > 0 then
-                call = G.GAME.dollars * ( G.GAME.round_resets.ante + 2)
+            if to_number(G.GAME.round_resets.ante) > 0 then
+                call = G.GAME.dollars * ( to_number(G.GAME.round_resets.ante) + 2)
             else
                 call = 2
             end
@@ -231,9 +231,9 @@ SMODS.Blind {
                 'remaining discard',}
     },
     loc_vars = function(self)
-    if G.GAME and G.GAME.round_resets and G.GAME.round_resets.ante then
-        if G.GAME.round_resets.ante > 0 then
-            return {vars = { 30 * G.GAME.round_resets.ante }}
+    if G.GAME and G.GAME.round_resets and to_number(G.GAME.round_resets.ante) then
+        if to_number(G.GAME.round_resets.ante) > 0 then
+            return {vars = { 30 * to_number(G.GAME.round_resets.ante) }}
         else
             return {vars = { 30 }}
         end
@@ -246,7 +246,7 @@ SMODS.Blind {
     calculate = function(self, blind, context)
         if context.final_scoring_step then
             return {
-                chips = math.max(G.GAME.current_round.discards_left, 0) * -30 * math.max(G.GAME.round_resets.ante, 1)
+                chips = math.max(G.GAME.current_round.discards_left, 0) * -30 * math.max(to_number(G.GAME.round_resets.ante), 1)
             }
         end
     end
