@@ -94,6 +94,8 @@ assert(SMODS.load_file('challenges.lua'))()
 assert(SMODS.load_file('decks.lua'))()
 assert(SMODS.load_file('blinds.lua'))()
 
+to_number = to_number or function(x) return x end
+
 if next(SMODS.find_mod("pta_saka")) then
    pcall(function()
       return NFS.load(SMODS.current_mod.path .. '/crossmods/haya.lua')()
