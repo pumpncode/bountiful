@@ -1,4 +1,4 @@
-B = {}
+BOUNTIFUL = {}
 
 SMODS.Atlas{
    key = 'jokers',
@@ -30,7 +30,7 @@ SMODS.Atlas {
    py = 34
 }
 
-B.enabledJokers = {
+BOUNTIFUL.enabledJokers = {
 'babel',
 'baitandswitch',
 'bakingsoda',
@@ -84,9 +84,9 @@ if not G.P_CENTER_POOLS["Food"] then
    }
 end
 
-for i = 1, #B.enabledJokers do
+for i = 1, #BOUNTIFUL.enabledJokers do
    pcall(function()
-      return NFS.load(SMODS.current_mod.path .. '/joker/' .. B.enabledJokers[i] .. '.lua')()
+      return NFS.load(SMODS.current_mod.path .. '/joker/' .. BOUNTIFUL.enabledJokers[i] .. '.lua')()
    end)
 end
 
